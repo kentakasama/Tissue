@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_072348) do
+ActiveRecord::Schema.define(version: 2019_05_18_081242) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_072348) do
     t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "check_box"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_072348) do
     t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "check_box"
     t.index ["item_id"], name: "index_selects_on_item_id"
     t.index ["user_id"], name: "index_selects_on_user_id"
   end
