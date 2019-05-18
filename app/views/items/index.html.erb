@@ -1,9 +1,20 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1>ご利用いただきありがとうございます。</h1>
+<h2>商品を選択してください</h2>
 
 <% @items.each do |item| %>
+<%= attachment_image_tag item, :image, :size => "300x300" %>
+<p>商品名</p>
 <%= item.name %>
+<p>商品説明</p>
 <%= item.caption %>
-<%= attachment_image_tag item, :image, :size => "100x100" %>
-<%= link_to "Show", item_path(item.id) %>
+<%= form_tag("/selects") do %>
+<%= check_box "select", "#{item.id}"%>
+<input type="submit" value="確定">
 <% end %>
+
+<% if current_user.admin? %>
+	<%= link_to "Show", item_path(item.id) %>
+<% end %>
+<% end %>
+
+
