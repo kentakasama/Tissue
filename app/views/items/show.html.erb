@@ -1,0 +1,8 @@
+<h1>Items#show</h1>
+<p>Find me in app/views/items/show.html.erb</p>
+
+<%= @item.name %>
+<%= @item.caption %>
+<%= attachment_image_tag @item, :image, :size => "100x100" %>
+<%= link_to "Edit", edit_item_path(@item.id) %>
+<%= link_to "Delete", item_path(@item.id), method: :delete, "data-confirm"=> "Are you sure?" %>

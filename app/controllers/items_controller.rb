@@ -1,0 +1,54 @@
+class ItemsController < ApplicationController
+
+  # before_action :authenticate_user!
+  # before_action :admin_check, only:[:new, :show, :edit, :update, :destroy]
+
+  def new
+  	@item = Item.new
+  end
+
+  def index
+  	@items = Item.all
+  end
+
+  def create
+  	item = Item.new(item_params)
+  	item.save
+  	redirect_to item_path(item.id)
+  end
+
+  def show
+  	@item = Item.find(params[:id])
+  end
+
+  def edit
+  	@item = Item.find(params[:id])
+  end
+
+  def update
+  	item = Item.find(params[:id])
+  	item.update(item_params)
+  	redirect_to items_path
+  end
+
+  def destroy
+  	item = Item.find(params[:id])
+  	item.destroy
+  	redirect_to items_path
+  end
+
+  def admin_check
+  	if current_user.admin == false
+  		redirect_to items_path
+  	end
+  end
+
+  private
+
+  def item_params
+  	params.require(:item).permit(:name, :caption, :image)
+  end
+
+
+
+end
