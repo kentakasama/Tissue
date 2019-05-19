@@ -1,17 +1,24 @@
-<h1>ご注文ありがとうございました</h1>
-
-<h2>こちらの商品が毎月届きます。</h2>
-
-<p>画像</p>
-<% @select.item.image %>
-<p>商品名</p>
-<% @select.item.name %>
-<p>商品説明</p>
-<% @select.item.caption %>
+Select/index
+ここには、ユーザー情報と一番最後に選択された、商品を表示させたい
+<%=link_to "商品登録", new_item_path %>
+<%=link_to "登録商品一覧", items_path %>
+<%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
+<%= link_to "顧客一覧", users_path %>
 
 
-<h2>お届け先情報</h2>
+<% @selects.each do |select| %>
+
+<p>ユーザー情報</p>
+<p>E-mail</p>
+<%= select.user.email %>
 <p>郵便番号</p>
-<% @user.zip_code %>
+<%= select.user.zip_code %>
 <p>住所</p>
-<% @user.home_address %>
+<%= select.user.home_address %>
+<p>選択商品</p>
+<%= select.item.name %>
+
+<% end %>
+
+
+
