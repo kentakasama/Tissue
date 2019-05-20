@@ -1,8 +1,7 @@
-<h1>ご注文ありがとうございました</h1>
+<h1>ご注文いただきありがとうございます。</h1>
 
-<h2>こちらの商品が毎月届きます。</h2>
-<%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
-<%= link_to "マイページ", user_path(current_user.id) %>
+<h1>こちらの商品が毎月届きます。</h1>
+
 <h2>商品</h2>
 <p>郵便番号</p>
 <%= @select.item.name %>

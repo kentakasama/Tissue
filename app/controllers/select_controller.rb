@@ -4,7 +4,8 @@ class SelectController < ApplicationController
 
 
     def index
-    	@selects = Select.all
+        # .searchはモデルで定義しているメソッドを呼び出す。
+        @selects = Select.search(params[:search]).page(params[:page]).reverse_order
     end
 
     def show

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#top'
+  get "/about" => "home#about"
   resources :items
   resources :users, :only => [:index, :show, :edit, :update, :destroy]
   post "selects" => "select#create"
