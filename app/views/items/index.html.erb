@@ -1,6 +1,11 @@
-<h1>ご利用いただきありがとうございます。</h1>
-<h2>商品を選択してください</h2>
-<%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
+<% if user_signed_in? %>
+	<% if current_user.admin == true %>
+		<h1>登録商品一覧</h1>
+	<% else %>
+		<h1>ご利用いただきありがとうございます。</h1>
+		<h2>毎月ご利用される商品を選択してください</h2>
+	<% end %>
+<% end %>
 
 <% @items.each do |item| %>
 	<%= attachment_image_tag item, :image, :size => "300x300" %>

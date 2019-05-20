@@ -1,24 +1,28 @@
-Select/index
-ここには、ユーザー情報と一番最後に選択された、商品を表示させたい
-<%=link_to "商品登録", new_item_path %>
-<%=link_to "登録商品一覧", items_path %>
-<%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
-<%= link_to "顧客一覧", users_path %>
+<h1>注文履歴一覧</h1>
 
-
-<% @selects.each do |select| %>
-
-<p>ユーザー情報</p>
-<p>E-mail</p>
-<%= select.user.email %>
-<p>郵便番号</p>
-<%= select.user.zip_code %>
-<p>住所</p>
-<%= select.user.home_address %>
-<p>選択商品</p>
-<%= select.item.name %>
-
+<h2>商品名検索</h2>
+  <%= form_tag(selects_path,:method => 'get') do %>
+  <!-- 下記は入ってきた文字をパラメーターに代入する -->
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
+<ul>
+  <% @selects.each do |select| %>
+	  <li>
+	    <h2>注文情報</h2>
+		<p>選択商品</p>
+		<%= attachment_image_tag select.item, :image, :fill, 100, 100, format: 'png' %>
+		<%= select.item.name %>
+		<p>E-mail</p>
+		<%= select.user.email %>
+		<p>郵便番号</p>
+		<%= select.user.zip_code %>
+		<p>住所</p>
+		<%= select.user.home_address %>
+	  </li>
+  <% end %>
+  <%= paginate @selects, class: "paginate" %>
+</ul>
 
 

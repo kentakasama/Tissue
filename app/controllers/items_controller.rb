@@ -37,7 +37,8 @@ class ItemsController < ApplicationController
 
   def destroy
   	item = Item.find(params[:id])
-  	item.destroy
+  	if item.destroy
+      flash[:notice] = "商品を削除いたしました。"
   	redirect_to items_path
   end
 
@@ -52,7 +53,5 @@ class ItemsController < ApplicationController
   def item_params
   	params.require(:item).permit(:name, :caption, :image)
   end
-
-
 
 end

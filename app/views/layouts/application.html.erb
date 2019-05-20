@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">
+        <span>Paper</span>
+      </nav>
+          <nav class="nav-list">
+            <% if user_signed_in? %>
+              <% if current_user.admin == true %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to " 商品一覧", items_path, class: "glyphicon glyphicon-home home" %></li>
+                  <li><%= link_to " 商品登録", new_item_path, class: "glyphicon glyphicon-user users" %></li>
+                  <li><%= link_to " 顧客情報一覧", users_path, class: "glyphicon glyphicon-book books" %></li>
+                  <li><%= link_to " 注文一覧", selects_path, class: "glyphicon glyphicon-book books" %></li>
+                  <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
+                </ul>
+              <% elsif current_user.selects.blank? %>
+              <!-- 新規のお客様はヘッダーなし -->
+              <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to " 商品一覧/変更", items_path, class: "glyphicon glyphicon-home home" %></li>
+                  <li><%= link_to " マイページ", user_path(current_user.id), class: "glyphicon glyphicon-link about" %></li>
+                  <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
+                </ul>
+              <% end %>
+              <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-link home" %></li>
+                  <li><%= link_to " About", about_path, class: "glyphicon glyphicon-link about" %></li>
+                </ul>
+            <% end %>
+          </nav>
+    </div>
+  </header>
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
@@ -18,3 +51,4 @@
     <%= yield %>
   </body>
 </html>
+

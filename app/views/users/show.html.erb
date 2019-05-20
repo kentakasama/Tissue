@@ -1,18 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<h2>現在登録されている情報</h2>
-<%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
 
+<h2>お客様登録情報</h2>
 
 	<h2>商品</h2>
-	<p>商品名</p>
-	<%= @user.selects.last.item.name %>
-	<p>商品説明</p>
-	<%= @user.selects.last.item.caption %>
-
+	<% if @user.selects.blank? %>
+		<p>選択されていた商品がサービス外となってしまった為<br>再度,
+		商品を選択してください</p>
+		<%= link_to "商品を選択する", items_path%>
+	<% else %>
+		<%= attachment_image_tag @user.selects.last.item, :image, :fill, 100, 100, format: 'png' %>
+		<p>商品名</p>
+		<%= @user.selects.last.item.name %>
+		<p>商品説明</p>
+		<%= @user.selects.last.item.caption %>
+		<%= link_to '選択商品変更' , items_path %>
+	<% end %>
 
 	<h2>お届け先情報</h2>
 	<p>郵便番号</p>
 	<%= @user.zip_code %>
 	<p>住所</p>
 	<%= @user.home_address %>
+	<%= link_to 'お届け先情報変更' , edit_user_path(@user.id) %>
