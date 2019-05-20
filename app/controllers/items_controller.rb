@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
   	if item.destroy
       flash[:notice] = "商品を削除いたしました。"
   	redirect_to items_path
+    end
   end
 
   def admin_check
