@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tissue</title>
+    <title>Paper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,40 +10,61 @@
   </head>
 
   <body>
-    <header>
-      <nav class="nav-list">
-        <% if user_signed_in? %>
-          <% if current_user.admin == true %>
-            <ul>
-              <li><%= link_to " 商品一覧", items_path, class: "glyphicon glyphicon-home home" %></li>
-              <li><%= link_to " 商品登録", new_item_path, class: "glyphicon glyphicon-user users" %></li>
-              <li><%= link_to " 顧客情報一覧", users_path, class: "glyphicon glyphicon-book books" %></li>
-              <li><%= link_to " 注文一覧", selects_path, class: "glyphicon glyphicon-book books" %></li>
-              <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarEexample7">
+            <ul class="nav navbar-nav">
+              <li><a>Paper</a></li>
             </ul>
-          <% elsif current_user.selects.blank? %>
-          <!-- ログインしたばかりの新規のお客様はヘッダーなし -->
-          <% else %>
-            <ul>
-              <li><%= link_to " 商品一覧/変更", items_path, class: "glyphicon glyphicon-home home" %></li>
-              <li><%= link_to " マイページ", user_path(current_user.id), class: "glyphicon glyphicon-link about" %></li>
-              <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
-            </ul>
-          <% end %>
-        <% else %>
-            <ul>
-              <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-link home" %></li>
-              <li><%= link_to " About", about_path, class: "glyphicon glyphicon-link about" %></li>
-            </ul>
-        <% end %>
+            <p class="navbar-text navbar-right">
+              <% if user_signed_in? %>
+                <% if current_user.admin == true %>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to " 商品一覧", items_path %></li>
+                    <li><%= link_to " 商品登録", new_item_path %></li>
+                    <li><%= link_to " 顧客情報一覧", users_path %></li>
+                    <li><%= link_to " 注文一覧", selects_path %></li>
+                    <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                <% elsif current_user.selects.blank? %>
+                  <ul class="nav navbar-nav navbar-right">
+                <!-- ログインしたばかりの新規のお客様はヘッダーなし -->
+                  </ul>
+                <% else %>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to " 商品一覧/変更", items_path %></li>
+                    <li><%= link_to " マイページ", user_path(current_user.id) %></li>
+                    <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
+                  </ul>
+                <% end %>
+              <% else %>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><%= link_to " Home", root_path %></li>
+                    <li><%= link_to " About", about_path %></li>
+                  </ul>
+              <% end %>
+            </p>
+          </div>
+        </div>
       </nav>
-    </header>
+    </div>
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
     <%= yield %>
+
+    <footer></footer>
   </body>
 </html>
 

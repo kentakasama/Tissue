@@ -23,16 +23,6 @@
   box-sizing: border-box;
 }
 
-header{
-  background-color: transparent;
-  display: inline-block;
-  width: 100%;
-  height: 50px;
-  margin: 0px ;
-  color: white;
-  font-size: 14px;
-}
-
 .sign_button {
   display: inline-block;
   cursor: pointer;
@@ -65,7 +55,7 @@ header{
   position: absolute;
   background-color: #fff;
   width: 450px;
-  height: 350px;
+  height: 370px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -84,4 +74,61 @@ header{
 .fa_wrapper {
   cursor: pointer;
   margin: 3px 3px 0 0;
+}
+
+.main{
+  width:70%;
+  margin: 0 auto;
+}
+
+.main-top{
+  width:70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-about{
+  width:70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Iowan Old Style','Arial Rounded MT Bold',sans-serif;
+  text-align: center;
+}
+
+.top-text-1,
+.top-text-2,
+.top-text-3,
+.top-text-4,
+.top-text-5,
+.top-text-6,
+.top-text-7,
+.top-text-8,
+.top-text-9,
+.top-text-10
+{
+  display: none;
+  font-size: 25px;
+}
+
+.about-text-1,
+.about-text-2,
+.about-text-3,
+.about-text-4,
+.about-text-5,
+.about-text-6,
+.about-text-7
+{
+  display: none;
+  font-size: 25px;
+}
+
+.item-announce{
+  text-align: center;
+}
+footer {
+  width: 100%;
+  height: 120px;
 }
