@@ -23,6 +23,13 @@
   box-sizing: border-box;
 }
 
+.header-logo{
+  font-size: 30px;
+  text-align: center;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  font-weight: bold;
+}
+
 .sign_button {
   display: inline-block;
   cursor: pointer;
@@ -100,10 +107,30 @@
 }
 
 h1{
-  font-family: 'Iowan Old Style','Arial Rounded MT Bold',sans-serif;
   text-align: center;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  font-weight :bold;
 }
 
+/*.AboutUs-caption{
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  font-weight :bold;
+  font-size: ;*/
+
+
+.AboutUs-caption{
+  margin-bottom: 50px;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  font-size: 20px;
+}
+
+.alert{
+  margin: 0 auto;
+  text-align: center;
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+}
 .top-text-1,
 .top-text-2,
 .top-text-3,
@@ -118,6 +145,8 @@ h1{
   display: none;
   font-size: 25px;
   text-align: center;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+
 }
 
 .about-text-1,
@@ -128,11 +157,31 @@ h1{
 .about-text-6,
 .about-text-7
 {
-  display: none;
   font-size: 25px;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+
+}
+
+
+h2{
+  font-size: 25px;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.about-item,
+.about-user
+{
+  padding: 5px;
+  font-size: 16px;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.select-form{
+  padding: 5px;
 }
 
 .item-announce{
+  padding: 5px;
   text-align: center;
 }
 footer {

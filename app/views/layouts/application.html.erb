@@ -4,8 +4,8 @@
     <title>Paper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
   </head>
 
@@ -23,7 +23,7 @@
           </div>
           <div class="collapse navbar-collapse" id="navbarEexample7">
             <ul class="nav navbar-nav">
-              <li><a>Paper</a></li>
+              <li><a class="header-logo">Paper</a></li>
             </ul>
             <p class="navbar-text navbar-right">
               <% if user_signed_in? %>
@@ -58,7 +58,7 @@
       </nav>
     </div>
     <% if flash[:notice] %>
-      <div class="flash">
+      <div class="alert alert-warning">
         <%= flash[:notice] %>
       </div>
     <% end %>

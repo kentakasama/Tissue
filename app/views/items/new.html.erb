@@ -1,16 +1,15 @@
 <div class="main">
 	<div class="container-fluid">
 		<div class="row">
-			<h1>管理者
-			<br>新商品投稿ページ</h1>
+			<h1 style="line-height: 3em">管理者 新商品投稿ページ</h1>
 			<%= form_for(@item) do |f| %>
-			<p>商品画像</p>
+			<p class="about-item">商品画像</p>
 			<%= f.attachment_field :image %>
-			<p>商品名</p>
+			<p class="about-item">商品名</p>
 			<%= f.text_field :name %>
-			<p>商品説明</p>
+			<p class="about-item">商品説明</p>
 			<%= f.text_area :caption %>
-			<%= f.submit "出品" %>
+			<%= f.submit "出品する" %>
 			<% end %>
 		</div>
 	</div>

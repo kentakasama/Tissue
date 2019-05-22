@@ -1,16 +1,16 @@
 <div class="main">
 	<div class="container-fluid">
 		<div class="row">
-			<h1>管理者　商品詳細ページ</h1>
-
-			<%= attachment_image_tag @item, :image, :size => "150x150" %>
-			<p>商品名</p>
+			<h1 style="line-height: 3em">管理者　商品詳細ページ</h1>
+			<p class="item-image">商品画像</p>
+			<%= attachment_image_tag @item, :image, :size => "300x300" %>
+			<p class="about-item">商品名</p>
 			<%= @item.name %>
-			<p>商品説明</p>
+			<p class="about-item">商品説明</p>
 			<%= @item.caption %>
 
-			<%= link_to "Edit", edit_item_path(@item.id) %>
-			<%= link_to "Delete", item_path(@item.id), method: :delete, "data-confirm"=> "Are you sure?" %>
+			<%= link_to "商品を編集する", edit_item_path(@item.id) %>
+			<%= link_to "商品を削除する", item_path(@item.id), method: :delete, "data-confirm"=> "こちらの商品を本当に削除しますか?" %>
 		</div>
 	</div>
 </div>
