@@ -27,10 +27,30 @@ $(function() {
       $('.sign_in_modal').show();
     }
   });
-});
 
 $(document).on('click', '.sign_modal_wrapper, .fa_wrapper', function() {
     $('.sign_modal_wrapper').hide();
     $('.sign_modal').hide();
     $('.sign_modal_content').hide();
-})
+});
+
+
+$('.top-text-1').fadeIn(4500);
+$('.top-text-3').fadeIn(6000);
+$('.top-text-4').fadeIn(8000);
+$('.top-text-5').fadeIn(10000);
+$('.top-text-6').fadeIn(12000);
+$('.top-text-7').fadeIn(14000);
+$('.top-text-8').fadeIn(16000);
+$('.top-text-9').fadeIn(16000);
+$('.top-text-10').fadeIn(16000);
+
+$('.about-text-1').fadeIn(4500);
+$('.about-text-3').fadeIn(5500);
+$('.about-text-4').fadeIn(7500);
+$('.about-text-5').fadeIn(8500);
+$('.about-text-6').fadeIn(9500);
+$('.about-text-7').fadeIn(9500);
+
+});
+

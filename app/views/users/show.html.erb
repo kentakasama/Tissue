@@ -1,23 +1,44 @@
 
-<h2>お客様登録情報</h2>
 
-	<h2>商品</h2>
-	<% if @user.selects.blank? %>
-		<p>選択されていた商品がサービス外となってしまった為<br>再度,
-		商品を選択してください</p>
-		<%= link_to "商品を選択する", items_path%>
-	<% else %>
-		<%= attachment_image_tag @user.selects.last.item, :image, :fill, 100, 100, format: 'png' %>
-		<p>商品名</p>
-		<%= @user.selects.last.item.name %>
-		<p>商品説明</p>
-		<%= @user.selects.last.item.caption %>
-		<%= link_to '選択商品変更' , items_path %>
-	<% end %>
+<div class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<h2>選択中の商品</h2>
+			<% if @user.selects.blank? %>
+				<p>選択されていた商品がサービス外となってしまった為<br>再度,
+				商品を選択してください</p>
+				<%= link_to "商品を選択する", items_path%>
+			<% else %>
+			<div class="col-md-4">
+				<%= attachment_image_tag @user.selects.last.item, :image, :fill, 150, 150, format: 'png' %>
+			</div>
+			<div class="col-md-4">
+				<p>商品名</p>
+				<%= @user.selects.last.item.name %>
+				<p>商品説明</p>
+				<%= @user.selects.last.item.caption %>
+			</div>
+			<div class="col-md-4">
+				<%= link_to '選択商品変更' , items_path %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-	<h2>お届け先情報</h2>
-	<p>郵便番号</p>
-	<%= @user.zip_code %>
-	<p>住所</p>
-	<%= @user.home_address %>
-	<%= link_to 'お届け先情報変更' , edit_user_path(@user.id) %>
+<div class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<h2>お届け先情報</h2>
+			<div class="col-md-4">
+				<p>郵便番号</p>
+				<%= @user.zip_code %>
+				<p>住所</p>
+				<%= @user.home_address %>
+			</div>
+			<div class="col-md-4">
+				<%= link_to 'お届け先情報変更' , edit_user_path(@user.id) %>
+			</div>
+		</div>
+	</div>
+</div>

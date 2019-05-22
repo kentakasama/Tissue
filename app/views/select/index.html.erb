@@ -1,28 +1,39 @@
-<h1>注文履歴一覧</h1>
+<div class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<h1>注文履歴一覧</h1>
+			<h2>商品名検索</h2>
+			  <%= form_tag(selects_path,:method => 'get') do %>
+			  <!-- 下記は入ってきた文字をパラメーターに代入する -->
+			  <%= text_field_tag :search %>
+			  <%= submit_tag 'Search' %>
+			<% end %>
 
-<h2>商品名検索</h2>
-  <%= form_tag(selects_path,:method => 'get') do %>
-  <!-- 下記は入ってきた文字をパラメーターに代入する -->
-  <%= text_field_tag :search %>
-  <%= submit_tag 'Search', :name => nil %>
-<% end %>
-
-<ul>
-  <% @selects.each do |select| %>
-	  <li>
-	    <h2>注文情報</h2>
-		<p>選択商品</p>
-		<%= attachment_image_tag select.item, :image, :fill, 100, 100, format: 'png' %>
-		<%= select.item.name %>
-		<p>E-mail</p>
-		<%= select.user.email %>
-		<p>郵便番号</p>
-		<%= select.user.zip_code %>
-		<p>住所</p>
-		<%= select.user.home_address %>
-	  </li>
-  <% end %>
-  <%= paginate @selects, class: "paginate" %>
-</ul>
-
-
+			<div class="table-responsive">
+				<% @selects.each do |select| %>
+					<table class="table table-striped" style="table-layout:fixed;">
+						<thead>
+							<tr>
+								<th>選択商品</th>
+								<th>商品名</th>
+								<th>Email</th>
+								<th>郵便番号</th>
+								<th>住所</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th><%= attachment_image_tag select.item, :image, :fill, 100, 100, format: 'png' %></th>
+								<th><%= select.item.name %></th>
+								<th><%= select.user.email %></th>
+								<td><%= select.user.zip_code %></td>
+								<td><%= select.user.home_address %></td>
+							</tr>
+						</tbody>
+					</table>
+				<% end %>
+				<%= paginate @selects, class: "paginate" %>
+			</div>
+		</div>
+	</div>
+</div>

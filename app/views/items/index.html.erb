@@ -1,36 +1,40 @@
-<% if user_signed_in? %>
-	<% if current_user.admin == true %>
-		<h1>登録商品一覧</h1>
-	<% else %>
-		<h1>ご利用いただきありがとうございます。</h1>
-		<h2>毎月ご利用される商品を選択してください</h2>
-	<% end %>
-<% end %>
 
-<% @items.each do |item| %>
-	<%= attachment_image_tag item, :image, :size => "300x300" %>
-	<p>商品名</p>
-	<%= item.name %>
-	<p>商品説明</p>
-	<%= item.caption %>
+<div class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<% if user_signed_in? %>
+				<% if current_user.admin == true %>
+					<h1>登録商品一覧</h1>
+				<% else %>
+					<h1>Paperをご利用いただきありがとうございます。</h1>
+					<p class="item-announce">毎月ご利用される商品を選択してください</p>
+					<p class="item-announce">※選択してから1ヶ月以内は商品を変更できません。</p>
+				<% end %>
+			<% end %>
 
-	<!-- select/createアクションを呼び出す -->
-	<%= form_tag("/selects") do %>
-	<!-- チェックボックスを用いて、selectの配列に、item_idを入れるようにする。 -->
-	<%= check_box "select", "#{item.id}"%>
-	<input type="submit" value="確定">
+			<% @items.each do |item| %>
+			<div class="col-md-4">
+				<%= attachment_image_tag item, :image, :size => "300x300" %>
+				<p>商品名</p>
+				<%= item.name %>
+				<p>商品説明</p>
+				<%= item.caption %>
+				<!-- select/createアクションを呼び出す -->
+				<%= form_tag("/selects") do %>
+				<!-- チェックボックスを用いて、selectの配列に、item_idを入れるようにする。 -->
+				<%= check_box "select", "#{item.id}"%>
+				<input type="submit" value="確定">
 
-	<% if user_signed_in? %>
-		<% if current_user.admin == true %>
-			<%= link_to "Show", item_path(item.id) %>
-		<% end %>
-	<% end %>
-<% end %>
-
-
-
-
-
-<% end %>
+				<% if user_signed_in? %>
+					<% if current_user.admin == true %>
+						<%= link_to "Show", item_path(item.id) %>
+					<% end %>
+				<% end %>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 
