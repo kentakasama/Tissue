@@ -27,9 +27,15 @@
   display: inline-block;
   cursor: pointer;
   border: 2px solid black;
-  padding: 5px;
+  padding: 8px;
   opacity: .6;
   transition: .3s;
+}
+
+.sign_button:hover{
+  background-color:#ffffe0;
+  color:black;
+  font-weight :bold;
 }
 
 .button:hover {
@@ -111,6 +117,7 @@ h1{
 {
   display: none;
   font-size: 25px;
+  text-align: center;
 }
 
 .about-text-1,
