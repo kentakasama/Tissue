@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -40,17 +39,19 @@ $('.top-text-3').fadeIn(6000);
 $('.top-text-4').fadeIn(8000);
 $('.top-text-5').fadeIn(10000);
 $('.top-text-6').fadeIn(12000);
-$('.top-text-7').fadeIn(14000);
-$('.top-text-8').fadeIn(16000);
-$('.top-text-9').fadeIn(16000);
-$('.top-text-10').fadeIn(16000);
+$('.top-text-7').fadeIn(12300);
+$('.top-text-8').fadeIn(12600);
+$('.top-text-9').fadeIn(12900);
+$('.top-text-10').fadeIn(13100);
 
 $('.about-text-1').fadeIn(4500);
 $('.about-text-3').fadeIn(5500);
 $('.about-text-4').fadeIn(7500);
-$('.about-text-5').fadeIn(8500);
-$('.about-text-6').fadeIn(9500);
-$('.about-text-7').fadeIn(9500);
+$('.about-text-5').fadeIn(7600);
+$('.about-text-6').fadeIn(7700);
+$('.about-text-7').fadeIn(7800);
+
+$('.alert').fadeOut(2500);
 
 });
 

@@ -2,16 +2,16 @@
 <div class="main">
 	<div class="container-fluid">
 		<div class="row">
-			<h1>ご注文いただきありがとうございます。</h1>
+			<h1 style="line-height: 3em">ご注文いただきありがとうございます。</h1>
 			<h1>こちらの商品が毎月届きます。</h1>
 			<h2>選択中の商品</h2>
 			<div class="col-md-4">
 				<%= attachment_image_tag @select.item, :image, :fill, 150, 150 %>
 			</div>
 			<div class="col-md-4">
-				<p>商品名</p>
+				<p class="about-item">商品名</p>
 				<%= @select.item.name %>
-				<p>商品説明</p>
+				<p class="about-item">商品説明</p>
 				<%= @select.item.caption %>
 			</div>
 		</div>
@@ -23,9 +23,9 @@
 		<div class="row">
 			<h2>お届け先情報</h2>
 			<div class="col-md-4">
-				<p>郵便番号</p>
+				<p class="about-user">郵便番号</p>
 				<%= @select.user.zip_code %>
-				<p>住所</p>
+				<p class="about-user">住所</p>
 				<%= @select.user.home_address %>
 			</div>
 		</div>
