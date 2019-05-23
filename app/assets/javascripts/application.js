@@ -51,7 +51,15 @@ $('.about-text-5').fadeIn(7600);
 $('.about-text-6').fadeIn(7700);
 $('.about-text-7').fadeIn(7800);
 
-$('.alert').fadeOut(2500);
+$('.alert').fadeOut(4000);
 
 });
 
+$(function(){
+$('input').on('click',function(){
+if ($(this).prop('checked')){
+$('input').prop('checked',false);
+$(this).prop('checked',true);
+}
+});
+});

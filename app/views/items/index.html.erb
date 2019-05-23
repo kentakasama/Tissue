@@ -13,30 +13,44 @@
 			<% end %>
 
 			<% @items.each do |item| %>
-			<div class="col-md-4">
-				<%= attachment_image_tag item, :image, :size => "300x300" %>
-				<p class="about-item">商品名</p>
-				<%= item.name %>
-				<p class="about-item">商品説明</p>
-				<%= item.caption %>
-				<!-- select/createアクションを呼び出す -->
-				<div class="select-form">
-					<%= form_tag("/selects") do %>
-					<!-- チェックボックスを用いて、selectの配列に、item_idを入れるようにする。 -->
-					<%= check_box "select", "#{item.id}"%>
-					<input type="submit" value="確定">
-				</div>
+				<div class="col-md-4">
+					<%= attachment_image_tag item, :image, :size => "300x300" %>
+					<p class="about-item">商品名</p>
+					<%= item.name %>
+					<p class="about-item">商品説明</p>
+					<%= item.caption %>
 
-				<% if user_signed_in? %>
-					<% if current_user.admin == true %>
-						<%= link_to "Show", item_path(item.id) %>
+					<% if current_user.select.present? %>
+						<% if current_user.select.created_at < Time.current.ago(1.month) %>
+							<div class="select-form">
+								<%= form_tag("/selects") do %>
+								<!-- チェックボックスを用いて、selectの配列に、item_idと0.1を入れるようにする。 -->
+								<%= check_box "select", "#{item.id}", class: "checkbox" %>
+								<input type="submit" value="確定">
+								<% end %>
+							</div>
+						<% else %>
+						<!-- 表示させない -->
+						<% end %>
+					<% else %>
+						<div class="select-form">
+							<%= form_tag("/selects") do %>
+							<!-- チェックボックスを用いて、selectの配列に、item_idと0.1を入れるようにする。 -->
+							<%= check_box "select", "#{item.id}", class: "checkbox" %>
+							<input type="submit" value="確定">
+							<% end %>
+						</div>
 					<% end %>
-				<% end %>
-				<% end %>
-			</div>
+					<% if user_signed_in? %>
+						<% if current_user.admin == true %>
+							<%= link_to "Show", item_path(item.id) %>
+						<% end %>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
 	</div>
 </div>
+
 
 

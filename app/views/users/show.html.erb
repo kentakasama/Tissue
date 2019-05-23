@@ -6,8 +6,7 @@
 			<h1 style="line-height: 3em">マイページ</h1>
 			<h2>毎月お届けする商品</h2>
 			<% if @user.selects.blank? %>
-				<p>選択されていた商品がサービス外となってしまった為<br>再度,
-				商品を選択してください</p>
+				<p>現在、商品が選択されていません。</p>
 				<%= link_to "商品を選択する", items_path%>
 			<% else %>
 			<div class="col-md-4">

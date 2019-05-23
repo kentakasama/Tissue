@@ -18,9 +18,9 @@ class SelectController < ApplicationController
 	def create
     # params[:select]で送られてきた、item_idと0.1で1のitem_idとuser_idを保存
     params[:select].each do |di1,di2|
-      if di2 == "1"
+      if di2 == "1" && di1 != nil
     # binding.pry
-        if current_user.selects.any?
+        if current_user.select.present?
             @select = Select.find_by(user_id: current_user.id)
             @select.item_id = di1
             @select.update(select_params)
@@ -30,8 +30,11 @@ class SelectController < ApplicationController
             @select.user_id = current_user.id
             @select.save
         end
+        redirect_to "/selects/#{@select.id}"
+    else
+        flash[:notice] = "※商品を選択してください"
+        redirect_to items_path
       end
-      redirect_to "/selects/#{@select.id}"
     end
 	end
 

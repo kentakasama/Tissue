@@ -35,7 +35,7 @@
                     <li><%= link_to " 注文一覧", selects_path %></li>
                     <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
                   </ul>
-                <% elsif current_user.selects.blank? %>
+                <% elsif current_user.select.blank? %>
                   <ul class="nav navbar-nav navbar-right">
                 <!-- ログインしたばかりの新規のお客様はヘッダーなし -->
                   </ul>
