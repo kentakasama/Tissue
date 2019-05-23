@@ -1,7 +1,6 @@
 class Select < ApplicationRecord
   belongs_to :user
   belongs_to :item
-  has_one :order
   # params[:search]がfに代入される。
   def self.search(search)
       if search

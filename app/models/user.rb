@@ -7,8 +7,7 @@ class User < ApplicationRecord
   validates :zip_code, presence:true
   validates :home_address, presence:true
 
-  has_many :selects, dependent: :destroy
-  has_one :order
+  has_one :select, dependent: :destroy
 
   def self.search(search)
       if search
