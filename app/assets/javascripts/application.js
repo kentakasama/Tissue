@@ -35,21 +35,13 @@ $(document).on('click', '.sign_modal_wrapper, .fa_wrapper', function() {
 
 
 $('.top-text-1').fadeIn(4500);
-$('.top-text-3').fadeIn(6000);
-$('.top-text-4').fadeIn(8000);
-$('.top-text-5').fadeIn(10000);
-$('.top-text-6').fadeIn(12000);
-$('.top-text-7').fadeIn(12300);
-$('.top-text-8').fadeIn(12600);
-$('.top-text-9').fadeIn(12900);
-$('.top-text-10').fadeIn(13100);
-
-$('.about-text-1').fadeIn(4500);
-$('.about-text-3').fadeIn(5500);
-$('.about-text-4').fadeIn(7500);
-$('.about-text-5').fadeIn(7600);
-$('.about-text-6').fadeIn(7700);
-$('.about-text-7').fadeIn(7800);
+$('.top-text-2').fadeIn(6000);
+$('.top-text-3').fadeIn(8000);
+$('.top-text-4').fadeIn(10000);
+$('.top-text-5').fadeIn(12000);
+$('.top-text-6').fadeIn(12300);
+$('.top-text-7').fadeIn(12600);
+$('.top-text-8').fadeIn(12900);
 
 $('.alert').fadeOut(4000);
 
