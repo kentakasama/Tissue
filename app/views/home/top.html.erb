@@ -10,17 +10,17 @@
         <p class="top-text-6">ペーパーレスといわれるこの時代</p>
         <p class="top-text-7">Paperを無料で差し上げます。</p>
         <p class="top-text-8">ようこそ、無料のかみ（紙）のサービスへ</p>
-        <div class="sign_button sign_up_button">
-          新規登録
-        </div>
-        <div class="sign_button sign_in_button">
-          ログイン
-        </div>
+          <div class="sign_button sign_up_button">
+            新規登録
+          </div>
+          <div class="sign_button sign_in_button">
+            ログイン
+          </div>
       <div class="sign_modal_wrapper"></div>
         <div class="sign_modal">
           <span class="fa_wrapper"><%= fa_icon "times" %></span>
           <div class="sign_up_modal sign_modal_content">
-            <h2>新規登録</h2>
+            <h2>新規会員登録</h2>
             <form class="new_user" action ="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="0vopqXSAxej0lk4KKOWG+YUcG2s5X+btIeQBKegvkob1KNqBEYUcJjZXNJ9bYJDpL+8AncJ0uHNFA4luEVFTAg==">
               <div class="field">
                 <label for="user_email">メールアドレス</label><br>
@@ -39,7 +39,8 @@
 
               <div class="field">
                 <label for="user_password">パスワード</label>
-                <em>(6 characters minimum)</em>
+                <br>
+                <em class="password_confirm">(6桁以上で設定してください)</em>
                 <br>
                 <input autocomplete="new-password" type="password" name="user[password]" aria-autocomplete="list">
               </div>
