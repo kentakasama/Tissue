@@ -19,7 +19,6 @@ class SelectController < ApplicationController
     # params[:select]で送られてきた、item_idと0.1で1のitem_idとuser_idを保存
     params[:select].each do |di1,di2|
       if di2 == "1" && di1 != nil
-    # binding.pry
         if current_user.select.present?
             @select = Select.find_by(user_id: current_user.id)
             @select.item_id = di1
@@ -43,6 +42,7 @@ class SelectController < ApplicationController
             redirect_to items_path
         end
     end
+
 
     private
 
