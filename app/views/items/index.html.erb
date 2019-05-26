@@ -15,9 +15,9 @@
 			<% @items.each do |item| %>
 				<div class="col-md-4">
 					<%= attachment_image_tag item, :image, :size => "300x300" %>
-					<p class="about-item">商品名</p>
+					<p class="about-item" style="font-weight: bold;">商品名</p>
 					<%= item.name %>
-					<p class="about-item">商品説明</p>
+					<p class="about-item" style="font-weight: bold;">商品説明</p>
 					<%= item.caption %>
 
 					<% if current_user.select.present? %>
@@ -31,6 +31,7 @@
 							</div>
 						<% else %>
 						<!-- チェックボックス表示させない -->
+						<p style="line-height: 3em" >※ご注文から30日間は商品変更できません</p>
 						<% end %>
 					<% else %>
 						<div class="select-form">

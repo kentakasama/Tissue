@@ -4,24 +4,33 @@
 	<div class="container-fluid">
 		<div class="row">
 			<h1 style="line-height: 3em">マイページ</h1>
-			<h2>毎月お届けする商品</h2>
-			<% if @user.select.blank? %>
-				<p>現在、商品が選択されていません。</p>
-				<%= link_to "商品を選択する", items_path%>
-			<% else %>
-			<div class="col-md-4">
-				<%= attachment_image_tag @user.select.item, :image, :fill, 150, 150, format: 'png' %>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+			<h2 class="sub-title">毎月お届けする商品</h2>
+				<% if @user.select.blank? %>
+					<p>現在、商品が選択されていません。</p>
+					<%= link_to "商品を選択する", items_path%>
+				<% else %>
+				<div class="item_images">
+					<%= attachment_image_tag @user.select.item, :image, :fill, 200, 200, format: 'png' %>
+				</div>
+				<table>
+					  <tr>
+					    <th>商品名</th>
+					    <td><%= @user.select.item.name %></td>
+					  </tr>
+					  <tr>
+					    <th>商品説明</th>
+					    <td><%= @user.select.item.caption %></td>
+					  </tr>
+					  <tr>
+					    <th></th>
+					    <td><%= link_to '選択商品変更' , items_path %></td>
+					  </tr>
+				</table>
+				<% end %>
 			</div>
-			<div class="col-md-4">
-				<p class="about-item">商品名</p>
-				<%= @user.select.item.name %>
-				<p class="about-item">商品説明</p>
-				<%= @user.select.item.caption %>
-			</div>
-			<div class="col-md-4">
-				<%= link_to '選択商品変更' , items_path %>
-			</div>
-			<% end %>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>
@@ -29,16 +38,25 @@
 <div class="main">
 	<div class="container-fluid">
 		<div class="row">
-			<h2 >お届け先情報</h2>
-			<div class="col-md-4">
-				<p class="about-user">郵便番号</p>
-				<%= @user.zip_code %>
-				<p class="about-user">住所</p>
-				<%= @user.home_address %>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+			<h2 class="sub-title">お客様情報</h2>
+			<table>
+			  <tr>
+			    <th>郵便番号</th>
+			    <td><%= @user.zip_code %></td>
+			  </tr>
+			  <tr>
+			    <th>住所</th>
+			    <td><%= @user.home_address %></td>
+			  </tr>
+			  <tr>
+			    <th></th>
+			    <td><%= link_to 'お届け先情報変更' , edit_user_path(@user.id) %></td>
+			  </tr>
+			</table>
 			</div>
-			<div class="col-md-4">
-				<%= link_to 'お届け先情報変更' , edit_user_path(@user.id) %>
-			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>

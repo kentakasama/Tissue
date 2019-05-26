@@ -4,16 +4,24 @@
 		<div class="row">
 			<h1 style="line-height: 3em">ご注文いただきありがとうございます。</h1>
 			<h1>こちらの商品が毎月届きます。</h1>
-			<h2>選択中の商品</h2>
-			<div class="col-md-4">
-				<%= attachment_image_tag @select.item, :image, :fill, 150, 150 %>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+			<h2 class="sub-title">選択中の商品</h2>
+				<div class="item_images">
+				<%= attachment_image_tag @select.item, :image, :fill, 200, 200 %>
+				</div>
+			<table>
+				  <tr>
+				    <th>商品名</th>
+				    <td><%= @select.item.name %></td>
+				  </tr>
+				  <tr>
+				    <th>商品説明</th>
+				    <td><%= @select.item.caption %></td>
+				  </tr>
+			</table>
 			</div>
-			<div class="col-md-4">
-				<p class="about-item">商品名</p>
-				<%= @select.item.name %>
-				<p class="about-item">商品説明</p>
-				<%= @select.item.caption %>
-			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>
@@ -21,13 +29,21 @@
 <div class="main">
 	<div class="container-fluid">
 		<div class="row">
-			<h2>お届け先情報</h2>
-			<div class="col-md-4">
-				<p class="about-user">郵便番号</p>
-				<%= @select.user.zip_code %>
-				<p class="about-user">住所</p>
-				<%= @select.user.home_address %>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+			<h2 class="sub-title">お届け先情報</h2>
+			<table>
+			  <tr>
+			    <th>郵便番号</th>
+			    <td><%= @select.user.zip_code %></td>
+			  </tr>
+			  <tr>
+			    <th>住所</th>
+			    <td><%= @select.user.home_address %></td>
+			  </tr>
+			</table>
 			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>

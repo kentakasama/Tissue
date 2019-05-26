@@ -2,15 +2,25 @@
 	<div class="container-fluid">
 		<div class="row">
 			<h1 style="line-height: 3em">管理者　登録商品編集ページ</h1>
-			<%= form_for(@item) do |f| %>
-				<p class="about-item">商品画像</p>
-				<%= f.attachment_field :image %>
-				<p class="about-item">商品名</p>
-				<%= f.text_field :name %>
-				<p class="about-item">商品名</p>
-				<%= f.text_area :caption %>
-				<%= f.submit "Update" %>
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<%= form_for(@item) do |f| %>
+					<p class="about-item" style="font-weight: bold;">商品画像</p>
+					<div class="form-group">
+					<%= f.attachment_field :image, class: 'form-control',placeholder: '画像を選択してください' %>
+					</div>
+					<p class="about-item" style="font-weight: bold;">商品名</p>
+					<div class="form-group">
+					<%= f.text_field :name, class: 'form-control',placeholder: '商品名を入力してください'  %>
+					</div>
+					<p class="about-item" style="font-weight: bold;">商品名</p>
+					<div class="form-group">
+					<%= f.text_area :caption, class: 'form-control',placeholder: '商品説明を入力してください'  %>
+					</div>
+					<button type="submit" class="btn btn-default">更新する</button>
 			<% end %>
+			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>
