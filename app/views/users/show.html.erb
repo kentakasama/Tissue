@@ -5,18 +5,18 @@
 		<div class="row">
 			<h1 style="line-height: 3em">マイページ</h1>
 			<h2>毎月お届けする商品</h2>
-			<% if @user.selects.blank? %>
+			<% if @user.select.blank? %>
 				<p>現在、商品が選択されていません。</p>
 				<%= link_to "商品を選択する", items_path%>
 			<% else %>
 			<div class="col-md-4">
-				<%= attachment_image_tag @user.selects.last.item, :image, :fill, 150, 150, format: 'png' %>
+				<%= attachment_image_tag @user.select.item, :image, :fill, 150, 150, format: 'png' %>
 			</div>
 			<div class="col-md-4">
 				<p class="about-item">商品名</p>
-				<%= @user.selects.last.item.name %>
+				<%= @user.select.item.name %>
 				<p class="about-item">商品説明</p>
-				<%= @user.selects.last.item.caption %>
+				<%= @user.select.item.caption %>
 			</div>
 			<div class="col-md-4">
 				<%= link_to '選択商品変更' , items_path %>

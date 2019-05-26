@@ -2,9 +2,8 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :admin_check, only:[:index]
+
   def index
-    #Viewのformで取得したパラメータをモデルに渡す
-    # Paginate実装した。
   	@users = User.search(params[:search]).page(params[:page]).reverse_order
   end
 
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
     if user.update(user_params)
       flash[:notice] = "お客様情報を更新しました。"
     end
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(params[:id])
   end
 
   def destroy
@@ -37,6 +36,7 @@ class UsersController < ApplicationController
   		redirect_to items_path
   	end
   end
+
 
   private
 
