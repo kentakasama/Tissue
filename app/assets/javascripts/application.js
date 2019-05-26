@@ -39,9 +39,9 @@ $('.top-text-2').fadeIn(6000);
 $('.top-text-3').fadeIn(8000);
 $('.top-text-4').fadeIn(10000);
 $('.top-text-5').fadeIn(12000);
-$('.top-text-6').fadeIn(12300);
-$('.top-text-7').fadeIn(12600);
-$('.top-text-8').fadeIn(12900);
+$('.top-text-6').fadeIn(12000);
+$('.top-text-7').fadeIn(12000);
+$('.top-text-8').fadeIn(12000);
 
 $('.alert').fadeOut(4000);
 
