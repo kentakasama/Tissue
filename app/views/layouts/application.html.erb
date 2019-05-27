@@ -38,6 +38,7 @@
                 <% elsif current_user.select.blank? %>
                   <ul class="nav navbar-nav navbar-right">
                 <!-- ログインしたばかりの新規のお客様はヘッダーなし -->
+                    <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></li>
                   </ul>
                 <% else %>
                   <ul class="nav navbar-nav navbar-right">
