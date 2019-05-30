@@ -8,7 +8,6 @@
 			  <%= submit_tag 'Search', :name => nil %>
 			<% end %>
 			<div class="table-responsive">
-				<% @users.each do |user| %>
 					<table class="table table-striped" style="table-layout:fixed;">
 						<thead>
 							<tr>
@@ -17,6 +16,7 @@
 								<th>住所</th>
 							</tr>
 						</thead>
+						<% @users.each do |user| %>
 						<tbody>
 							<tr>
 								<td><%= link_to user.email, user_path(user.id) %></td>
@@ -24,8 +24,8 @@
 								<td><%= user.home_address %></td>
 							</tr>
 						</tbody>
+						<% end %>
 					</table>
-				<% end %>
 				<%= paginate @users, class: "paginate" %>
 			</div>
 		</div>
