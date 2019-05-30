@@ -1,0 +1,2 @@
+user = User.new(:email => 'kasaken1113@gmail.com', :zip_code => '146-0082', :home_address => '東京都大田区池上4−14−8山田ビル3F', :admin => true, :password => 'kasaken1113')
+user.save!
